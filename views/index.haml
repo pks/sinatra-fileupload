@@ -1,0 +1,22 @@
+!!!
+%head
+  %title Upload files/Dateien hochladen
+  %meta{ :charset => "utf-8" }
+%body
+  %form{ :action => 'mkdir', :method => 'post' }
+    Directory/Verzeichnis:
+    %input{ :name => 'dirname', :id => 'dirname' }
+    Token:
+    %input{ :name => 'token', :id => 'token' }
+    %input{ :type => 'submit', :value => "Verzeichnis auswählen/Select directory" }
+  %p
+    %strong
+      Eine kleine Anleitung:
+    Einfach einen Ordnernamen und ein dazugeh&ouml;riges 'token' ausdenken (das ist
+    eine Art Passwort, welches nur dazu dient den Upload nach Abbruch fortzusetzen und gleichzeitig
+    eine mehrfache Benutzung eines Ordners zu verhindern). Wenn alles gut geht gelangt ihr auf eine sehr schlichte
+    Seite auf der man die Dateien zum Hochladen ausw&auml;len kann. Dabei bitte beachten, dass gleich benannte Dateien &uuml;berschrieben werden (also besser mehrere Ordner anlegen)!
+    %br
+    %br
+    Bei Fragen bitte an Patrick &lt;<a href="mailto:p@simianer.de">p@simianer.de</a>&gt; wenden.
+
