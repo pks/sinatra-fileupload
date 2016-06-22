@@ -1,4 +1,4 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'haml'
 
 class FileUpload < Sinatra::Base
@@ -6,6 +6,9 @@ class FileUpload < Sinatra::Base
     enable :static
     enable :sessions
 
+    #set :bind, 'upload.simianer.de'
+    set :port, 8000
+    set :environment, :production
     set :views, File.join(File.dirname(__FILE__), 'views')
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
   end
@@ -30,12 +33,12 @@ class FileUpload < Sinatra::Base
     saved_token = `cat #{dir}/.token`.strip
     if token == saved_token
       return true
-    end 
+    end
     return false
   end
 
   def check_dirname dirname
-    return dirname.match /^[a-zA-Z0-9_-]+$/
+    return dirname.match /^[a-zA-Z0-9_]+$/
   end
 
   def get_dir dirname
@@ -101,7 +104,7 @@ class FileUpload < Sinatra::Base
 
   get "/list_dir/:dirname/:token" do
     log '/list_dir', params
-    
+
     dirname = params[:dirname]
     dir = get_dir dirname
     token = params[:token]
@@ -110,7 +113,7 @@ class FileUpload < Sinatra::Base
 
     if allowed
       s = "<ul>"
-      s += Dir[dir+"/*"].map { |i| i.gsub(get_dir(""),"") }.map { |i| "<li>#{i}</li>" }.join "\n"
+      s += Dir[dir+"/*"].map { |i| i.gsub(get_dir(""),"") }.map { |i| "<li>#{i}</li>" }.sort.join "\n"
       s += "</ul>"
       return s
     end

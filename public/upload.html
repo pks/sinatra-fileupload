@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Upload</title>
     <script type='text/javascript' src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
+    <link href="main.css" rel="stylesheet">
     <link href="fine-uploader.css" rel="stylesheet">
     <script src="fine-uploader.js"></script>
     <script type="text/template" id="qq-template">
@@ -117,14 +118,16 @@
 
   <body>
 
+  <div id="wrapper">
     <div id="fine-uploader"></div>
     <br />
     <br />
     <br />
     Derzeitige Dateien/Current files:
     <div id="list"></div>
-    <p><strong>Verzeichnis/Directory: <span id="dirname"></span>,
-      token: <span id="token"></span>, token OK: <span id="ok"></span></strong></p>
+    <p style="font-size:.6em"><strong>Ordner/Folder: <span id="dirname" style="text-decoration:underline"></span>,
+      token: <span id="token" style="text-decoration:underline"></span>, token OK: <span id="ok" style="text-decoration:underline"></span></strong></p>
+  </div>
 
   </body>
 </html>

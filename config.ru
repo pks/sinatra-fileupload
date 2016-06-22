@@ -1,4 +1,4 @@
 require './file_upload'
 
-run FileUpload
+FileUpload.run!
 

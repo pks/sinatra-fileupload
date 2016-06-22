@@ -2,21 +2,32 @@
 %head
   %title Upload files/Dateien hochladen
   %meta{ :charset => "utf-8" }
+  %link{ :href => "main.css", :rel => "stylesheet" }
 %body
-  %form{ :action => 'mkdir', :method => 'post' }
-    Directory/Verzeichnis:
-    %input{ :name => 'dirname', :id => 'dirname' }
-    Token:
-    %input{ :name => 'token', :id => 'token' }
-    %input{ :type => 'submit', :value => "Verzeichnis auswählen/Select directory" }
-  %p
-    %strong
-      Eine kleine Anleitung:
-    Einfach einen Ordnernamen und ein dazugeh&ouml;riges 'token' ausdenken (das ist
-    eine Art Passwort, welches nur dazu dient den Upload nach Abbruch fortzusetzen und gleichzeitig
-    eine mehrfache Benutzung eines Ordners zu verhindern). Wenn alles gut geht gelangt ihr auf eine sehr schlichte
-    Seite auf der man die Dateien zum Hochladen ausw&auml;len kann. Dabei bitte beachten, dass gleich benannte Dateien &uuml;berschrieben werden (also besser mehrere Ordner anlegen)!
-    %br
-    %br
-    Bei Fragen bitte an Patrick &lt;<a href="mailto:p@simianer.de">p@simianer.de</a>&gt; wenden.
+  %div{ :id => "wrapper" }
+    %form{ :action => 'mkdir', :method => 'post' }
+      %table
+        %tr
+          %td Ordner/Folder:
+          %td
+            %input{ :name => 'dirname', :id => 'dirname' }
+        %tr
+          %td Token:
+          %td
+            %input{ :name => 'token', :id => 'token', :value =>""  }
+        %tr
+          %td{ :colspan => 2, :style => "text-align:center;padding:1em" }
+            %input{ :type => 'submit', :value => "Ordner auswählen/Select folder" }
+    %p
+      %strong
+        Eine kleine Anleitung:
+      Einfach einen Ordnernamen (dieser darf die Buchstaben A-Z ohne Umlaute, Ziffern und den Unterstrich enthalten '_') und ein dazugeh&ouml;riges 'token' ausdenken (das ist
+      eine Art Passwort, welches nur dazu dient den Upload nach Abbruch fortzusetzen und gleichzeitig
+      eine Mehrfachnutzung eines Ordners zu verhindern). Den Ordner und das zugeh&ouml;rige token bitte merken!<br /><br />Wenn alles gut geht gelangt ihr auf eine sehr schlichte
+      Seite auf der man die Dateien zum Hochladen ausw&auml;hlen kann -- einfach auf den roten Button klicken, Dateien ausw&auml;hlen (auch mehrere auf einmal!) und dann geht der Upload auch schon los. Die bereits hochgeladenen Dateien werden als Liste angezeigt. Dabei bitte beachten, dass gleich benannte Dateien &uuml;berschrieben werden (also besser mehrere Ordner anlegen)!
+      %br
+      %br
+      Bei Fragen bitte an Patrick &lt;<a href="mailto:p@simianer.de">p@simianer.de</a>&gt; wenden.
+      %br
+      Funktioniert mit Firefox, Chrome, Safari, Android und iOS, Internet Explorer geht auch, der zeigt aber nicht die bereits hochgeladenen Dateien an.
 

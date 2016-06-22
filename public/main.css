@@ -1,0 +1,16 @@
+body {
+  font-size:1.25em;
+  color: #000;
+  background: #fff
+}
+
+input {
+  height:2em;
+  padding: .25em;
+  border: 1px solid #000
+}
+
+#wrapper {
+  margin:3em
+}
+
