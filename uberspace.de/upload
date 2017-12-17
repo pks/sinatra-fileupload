@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# to run this on an uberspace.de account
+
+export HOME=/home/ACCOUNT
+. $HOME/.bash_profile
+export PHP_FCGI_CHILDREN=1
+cd $HOME/sinatra-fileupload-with-tokens
+exec /package/host/localhost/ruby-1.9.3-p551/bin/rackup &> ~/upload.log
+
